@@ -122,13 +122,13 @@ SendInventory.OnClientEvent:Connect(function(updatedItems)
 end)
 ```
 
-### Important Notes & Limitations
+## Important Notes & Limitations
 
-## Server Authority
+### Server Authority
 
 All pack opening logic runs on the server. Clients cannot determine card results.
 
-## Inventory Updates
+### Inventory Updates
 
 The server currently fires SendInventory after:
 
