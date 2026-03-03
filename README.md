@@ -15,3 +15,6 @@ rojo serve
 ```
 
 For more help, check out [the Rojo documentation](https://rojo.space/docs).
+
+## Why this Project?
+All four of us were interested in game development and we came to the consensus of recreating the iconic game "Card-Jitsu." We are looking to create our own twist on the classic Club Penguin strategy card game with the use of the Roblox Studio environment. Our goal is to create a fully functional game to publish to the Roblox game catalog.
