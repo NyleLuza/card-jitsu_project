@@ -78,4 +78,62 @@ Pack1 = {
 }
 ```
 
-### Errors and Exceptions
+## Errors and Exceptions
+
+The following issues may occur:
+
+1. Invalid Pack Name
+
+If PackName does not exist in:
+
+```lua
+ReplicatedStorage.Packs.Series1
+```
+
+2. Inventory Not Initialized
+
+If InventoryService.InitPlayer has not run, the player inventory may not exist in memory.
+
+3. Invalid Weights
+
+Weights must be positive numbers. If all weights are zero or invalid, random selection will not work.
+
+## Example Usage
+
+### Client Example (Opening a Pack)
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RequestOpenPack = ReplicatedStorage.RemoteEvents.RequestOpenPack
+
+-- Attempt to open a pack
+RequestOpenPack:FireServer("StarterPack")
+```
+
+### Client Example (Receiving Updated Inventory)
+
+```lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local SendInventory = ReplicatedStorage.RemoteEvents.SendInventory
+
+SendInventory.OnClientEvent:Connect(function(updatedItems)
+    print("Inventory updated!")
+    print(updatedItems)
+end)
+```
+
+### Important Notes & Limitations
+
+## Server Authority
+
+All pack opening logic runs on the server. Clients cannot determine card results.
+
+## Inventory Updates
+
+The server currently fires SendInventory after:
+
+Adding the card
+
+Removing the pack
+
+This may result in multiple UI refreshes.
